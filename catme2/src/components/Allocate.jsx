@@ -10,6 +10,7 @@ class Allocate extends Component {
   state = {
     choice: '',
     teams: [],
+    students: [],
   };
 
   chooseAlgorithm = choice => {
@@ -74,6 +75,15 @@ class Allocate extends Component {
         return <div>{renderedContent}</div>;
     }
   };
+
+  componentDidMount() {
+    const { unit } = this.props.location.state;
+    console.log(unit);
+    this.setState({
+      teams: unit.teams,
+      students: unit.students,
+    });
+  }
 
   render() {
     return (

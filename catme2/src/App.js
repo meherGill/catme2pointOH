@@ -25,7 +25,7 @@ class App extends React.Component {
             // )}
             component={LabList}
           />
-          <Route path="/allocate" component={Allocate} />
+          <Route path="/units/:id/allocate" component={Allocate} />
         </Switch>
       </Fragment>
     );

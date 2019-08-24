@@ -28,10 +28,17 @@ class LabList extends React.Component {
 
   render() {
     return (
-      <Card.Group centered itemsPerRow={3}>
+      <Card.Group centered itemsPerRow={4}>
         {this.state.units.map(unit => (
           <Fragment>
-            <Card as={Link} to="/allocate">
+            <Card
+              as={Link}
+              to={{
+                pathname: `/units/${unit.code}/allocate`,
+                state: { unit: unit },
+              }}
+              style={{ margin: '2rem' }}
+            >
               <Image src="https://picsum.photos/200" wrapped ui={false} />
               <Card.Content textAlign="center">
                 <Card.Header>{unit.code}</Card.Header>

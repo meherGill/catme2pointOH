@@ -1,30 +1,4 @@
-let narutoSplit = (arr, num) => {
-  let yarr = new Array();
-  for (let i = 0; i < num - 1; i++) {
-    if (i % 2 === 0) {
-      yarr.push(arr.pop());
-    } else {
-      yarr.push(arr.shift());
-    }
-  }
-
-  let mid = Math.floor(arr.length / 2);
-  yarr.push(arr.splice(mid, 1));
-  return yarr;
-};
-
-let normalSplit = (arr, num) => {
-  let yarr = new Array();
-  for (let i = 0; i < num; i++) {
-    if (i % 2 === 0) {
-      yarr.push(arr.pop());
-    } else {
-      yarr.push(arr.shift());
-    }
-  }
-  return yarr;
-};
-function balanced_matching(studentCollection, unitObject, studentsPerTeam) {
+function best_fit_matching(studentCollection, unitObject, studentsPerTeam) {
   function refinedStudent(id, kys) {
     (this.id = id), (this.skills = new Object()), (this.kys = kys);
   }
@@ -54,29 +28,22 @@ function balanced_matching(studentCollection, unitObject, studentsPerTeam) {
 
   let arrayToReturn = new Array();
   let valToPush = new Array();
-
-  for (let elem of refinedStudentArray) {
-    console.log(elem);
-  }
-
   while (refinedStudentArray.length > 0) {
+    let valToPush = new Array();
+
     if (refinedStudentArray.length >= studentsPerTeam) {
-      if (studentsPerTeam % 2 == 0) {
-        arrayToReturn.push(normalSplit(refinedStudentArray, studentsPerTeam));
-      } else {
-        arrayToReturn.push(narutoSplit(refinedStudentArray, studentsPerTeam));
+      for (let i = 0; i < studentsPerTeam; i++) {
+        valToPush.push(refinedStudentArray.pop());
       }
     } else {
-      for (let i = 0; i < refinedStudentArray.length; i++) {
+      let l = refinedStudentArray.length;
+      for (let i = 0; i < l; i++) {
         valToPush.push(refinedStudentArray.pop());
       }
     }
-    // console.log("")
+    arrayToReturn.push(valToPush);
   }
-
-  arrayToReturn.push(valToPush);
-
   return arrayToReturn;
 }
 
-export default balanced_matching;
+export default best_fit_matching;

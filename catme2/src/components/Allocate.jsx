@@ -7,6 +7,23 @@ import allocateBalanced from './MatchingStudentAlgo/Balanced';
 import allocateBestFit from './MatchingStudentAlgo/BestFit';
 import { Grid, Dropdown } from 'semantic-ui-react';
 
+import {
+  Card,
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Header,
+  Icon,
+  Image,
+  List,
+  Menu,
+  Responsive,
+  Segment,
+  Sidebar,
+  Visibility,
+} from 'semantic-ui-react';
+
 class Allocate extends Component {
   state = {
     teams: [],
@@ -90,6 +107,24 @@ class Allocate extends Component {
   }
 
   render() {
+    return (
+      <div>
+        <Header
+          inverted
+          as="h2"
+          textAlign="align-left"
+          style={{ padding: '1em 1em' }}
+        >
+          <Icon inverted name="users" style={{ testAlign: 'left' }} circular />
+          <Header.Content>Allocation</Header.Content>
+        </Header>
+      </div>
+      // <Container alignRight>
+      //   <Row>
+      //     <Dropdown>
+      //       <Dropdown.Toggle variant="success" id="dropdown-basic">
+      //         Choose Algorithm
+      //       </Dropdown.Toggle>
     const selectionOptions = [
       {
         key: 'Balanced',

@@ -60,10 +60,10 @@ const LabList = props => {
 
   for (const [index, value] of lab.entries()) {
     item.push(
-      <Link to="/Allocate">
-        <Card>
-          <Card.Body>
-            <Card.Title>{value.name}</Card.Title>
+      <Card>
+        <Card.Body>
+          <Card.Title>{value.name}</Card.Title>
+          <Link to="/Allocate">
             <Card.Text>
               <ListGroup>
                 {value.assignments.map((data, index) => (
@@ -79,9 +79,9 @@ const LabList = props => {
               })} */}
               </ListGroup>
             </Card.Text>
-          </Card.Body>
-        </Card>
-      </Link>
+          </Link>
+        </Card.Body>
+      </Card>
     );
   }
 

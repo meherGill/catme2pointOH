@@ -5,73 +5,76 @@ import StudentList from './StudentList';
 import allocateRandomly from './MatchingStudentAlgo/Random';
 import allocateBalanced from './MatchingStudentAlgo/Balanced';
 import allocateBestFit from './MatchingStudentAlgo/BestFit';
+import { Grid, Dropdown } from 'semantic-ui-react';
 
 class Allocate extends Component {
   state = {
-    choice: '',
     teams: [],
     students: [],
   };
 
-  chooseAlgorithm = choice => {
-    switch (choice) {
+  chooseAlgorithm = (e, { value }) => {
+    console.log(e);
+    this.setState(
+      {
+        value,
+      },
+      console.log(this.state)
+    );
+    switch (value) {
       case 'Manual':
-        this.setState({
-          choice: 'Manual',
-          teams: [],
-        });
+        this.setState(
+          {
+            teams: [],
+          },
+          this.renderTeams
+        );
         break;
       case 'Random':
-        this.setState({
-          choice: 'Random',
-          teams: allocateRandomly(),
-        });
+        this.setState(
+          {
+            teams: allocateRandomly(this.state.students, 3),
+          },
+          this.renderTeams
+        );
         break;
       case 'Balanced':
         this.setState(
           {
-            choice: 'Balanced',
             teams: allocateBalanced(),
           },
-          () => {
-            console.log('watch this');
-            console.log(this.state.teams);
-          }
+          this.renderTeams
         );
         break;
       case 'Best Fit':
-        this.setState({
-          choice: 'Best Fit',
-          teams: allocateBestFit(),
-        });
+        this.setState(
+          {
+            teams: allocateBestFit(),
+          },
+          this.renderTeams
+        );
         break;
       default:
-        this.setState({
-          choice: '',
-          teams: [],
-        });
+        this.setState(
+          {
+            teams: [],
+          },
+          this.renderTeams
+        );
         break;
     }
   };
 
   renderTeams = () => {
-    switch (this.state.choice) {
+    switch (this.state.value) {
       case 'Manual':
-        return (
-          <div>manual</div>
-          // <Row>
-          //   <Col md={3}>
-          //     <StudentList students={['Jack', 'Ridley', 'Ganz']} />
-          //   </Col>
-          //   <Col md={9}>
-          //     <TeamList teams={[['Jack', 'Ridley'], ['Jack', 'Ridley']]} />
-          //   </Col>
-          // </Row>
-        );
+        return <div>manual</div>;
       case '':
         return <div></div>;
       default:
-        let renderedContent = <TeamList teams={this.state.teams} />;
+        let renderedContent = (
+          <TeamList teamName="Whatever" teams={this.state.teams} />
+        );
         return <div>{renderedContent}</div>;
     }
   };
@@ -79,6 +82,7 @@ class Allocate extends Component {
   componentDidMount() {
     const { unit } = this.props.location.state;
     console.log(unit);
+    console.log(this.props.location.state);
     this.setState({
       teams: unit.teams,
       students: unit.students,
@@ -86,34 +90,42 @@ class Allocate extends Component {
   }
 
   render() {
+    const selectionOptions = [
+      {
+        key: 'Balanced',
+        text: 'Balanced',
+        value: 'Balanced',
+      },
+      {
+        key: 'High achievers',
+        text: 'High achievers',
+        value: 'High achievers',
+      },
+      {
+        key: 'Random',
+        text: 'Random',
+        value: 'Random',
+      },
+    ];
+
+    const { value } = this.state;
+
     return (
-      <div>hello</div>
-      // <Container alignRight>
-      //   <Row>
-      //     <Dropdown>
-      //       <Dropdown.Toggle variant="success" id="dropdown-basic">
-      //         Choose Algorithm
-      //       </Dropdown.Toggle>
-
-      //       <Dropdown.Menu>
-      //         <Dropdown.Item onClick={() => this.chooseAlgorithm('Manual')}>
-      //           Manual
-      //         </Dropdown.Item>
-      //         <Dropdown.Item onClick={() => this.chooseAlgorithm('Random')}>
-      //           Random
-      //         </Dropdown.Item>
-      //         <Dropdown.Item onClick={() => this.chooseAlgorithm('Balanced')}>
-      //           Balanced
-      //         </Dropdown.Item>
-      //         <Dropdown.Item onClick={() => this.chooseAlgorithm('Best Fit')}>
-      //           Best Fit
-      //         </Dropdown.Item>
-      //       </Dropdown.Menu>
-      //     </Dropdown>
-      //   </Row>
-
-      //   {this.renderTeams()}
-      // </Container>
+      <Grid centered style={{ marginTop: '2rem' }}>
+        <Grid.Row>
+          <Grid.Column width={6}>
+            <Dropdown
+              placeholder="Select algorithm"
+              fluid
+              selection
+              options={selectionOptions}
+              onChange={this.chooseAlgorithm}
+              value={value}
+            ></Dropdown>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Column width={10}>{this.renderTeams()}</Grid.Column>
+      </Grid>
     );
   }
 }

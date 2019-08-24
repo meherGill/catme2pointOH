@@ -6,13 +6,15 @@ import App from './App';
 import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
-import * as firebase from 'firebase';
 
 // import home from './components/Home/Home';
 
 import LabList from './components/LabList';
 import Navbar from './components/NavbarComponent';
 import Allocate from './components/Allocate';
+
+const firebase = require('firebase');
+require('firebase/firestore');
 
 var config = {
   apiKey: 'AIzaSyDKRjElKWwcW9RGWTqjjAeMPyDXDY3ew5E',

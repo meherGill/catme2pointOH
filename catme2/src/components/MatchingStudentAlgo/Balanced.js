@@ -1,3 +1,31 @@
+const students = [
+  {
+    id: '1231',
+    name: 'B',
+    skills: { Programming: 3, Agile: 5, dad: 10 },
+  },
+  {
+    id: '221',
+    name: 'Be',
+    skills: { Programming: 2, Agile: 6, dad: 10 },
+  },
+  {
+    id: '34',
+    name: 'Bh',
+    skills: { Programming: 3, Agile: 5, dad: 1 },
+  },
+  {
+    id: '21',
+    name: 'Bi',
+    skills: { Programming: 13, Agile: 5, dad: 1 },
+  },
+  {
+    id: '54',
+    name: 'Bi',
+    skills: { Programming: 13, Agile: 2, dad: 11 },
+  },
+];
+
 let narutoSplit = (arr, num) => {
   let yarr = new Array();
   for (let i = 0; i < num - 1; i++) {
@@ -9,7 +37,7 @@ let narutoSplit = (arr, num) => {
   }
 
   let mid = Math.floor(arr.length / 2);
-  yarr.push(arr.splice(mid, 1));
+  yarr.push(arr.splice(mid, 1)[0]);
   return yarr;
 };
 
@@ -24,9 +52,16 @@ let normalSplit = (arr, num) => {
   }
   return yarr;
 };
-function balanced_matching(studentCollection, unitObject, studentsPerTeam) {
+
+function balanced_matching(
+  studentCollection = students,
+  unitObject = { required_skills: ['Programming', 'Agile'] },
+  studentsPerTeam = 3
+) {
   function refinedStudent(id, kys) {
-    (this.id = id), (this.skills = new Object()), (this.kys = kys);
+    this.id = id;
+    this.skills = new Object();
+    this.kys = kys;
   }
 
   let refinedStudentArray = new Array();
@@ -75,8 +110,21 @@ function balanced_matching(studentCollection, unitObject, studentsPerTeam) {
   }
 
   arrayToReturn.push(valToPush);
+  let newArray = [];
 
-  return arrayToReturn;
+  for (let each of arrayToReturn) {
+    let newVal = [];
+    for (let e of each) {
+      console.log(e[0][0]);
+      let stu = students.filter(val => {
+        return val.id == e[0];
+      })[0];
+      newVal.push(stu);
+    }
+    newArray.push(newVal);
+  }
+  console.log(newArray);
+  return newArray;
 }
 
 export default balanced_matching;

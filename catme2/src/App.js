@@ -1,5 +1,18 @@
 import React, { Fragment } from 'react';
 import './App.css';
+import './vendor/fontawesome-free/css/all.min.css'
+// import './vendor/jquery/jquery.min.js'
+// import './vendor/bootstrap/js/bootstrap.bundle.min.js'
+
+// import './vendor/jquery-easing/jquery.easing.min.js'
+
+// import './js/sb-admin-2.min.js'
+
+
+import './vendor/chart.js/Chart.min.js'
+
+import './js/demo/chart-area-demo.js'
+import './js/demo/chart-pie-demo.js'
 
 import { Container } from 'react-bootstrap';
 
@@ -20,7 +33,7 @@ function App() {
       />
       <meta name="description" content />
       <meta name="author" content />
-      <title>SB Admin 2 - Dashboard</title>
+      <title>TeamUp - Dashbaord</title>
       {/* Custom fonts for this template*/}
       <link
         href="vendor/fontawesome-free/css/all.min.css"
@@ -883,7 +896,7 @@ function App() {
                         <img
                           className="img-fluid px-3 px-sm-4 mt-3 mb-4"
                           style={{ width: '25rem' }}
-                          src="img/undraw_posting_photo.svg"
+                          src="./img/undraw_posting_photo.svg"
                           alt=""
                         />
                       </div>

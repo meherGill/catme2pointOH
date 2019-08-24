@@ -1,0 +1,19 @@
+{
+  "name": "catme2pointoh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fr0stb3t3/catme2pointOH.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fr0stb3t3/catme2pointOH/issues"
+  },
+  "homepage": "https://github.com/fr0stb3t3/catme2pointOH#readme"
+}

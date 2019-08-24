@@ -4,6 +4,8 @@ import { Container, Col, Row, Dropdown } from 'react-bootstrap';
 import StudentList from './StudentList';
 
 import allocateRandomly from './MatchingStudentAlgo/Random';
+import allocateBalanced from './MatchingStudentAlgo/Balanced';
+import allocateBestFit from './MatchingStudentAlgo/BestFit';
 
 class Allocate extends Component {
   state = {
@@ -25,9 +27,28 @@ class Allocate extends Component {
           teams: allocateRandomly(),
         });
         break;
+      case 'Balanced':
+        this.setState(
+          {
+            choice: 'Balanced',
+            teams: allocateBalanced(),
+          },
+          () => {
+            console.log('watch this');
+            console.log(this.state.teams);
+          }
+        );
+        break;
+      case 'Best Fit':
+        this.setState({
+          choice: 'Best Fit',
+          teams: allocateBestFit(),
+        });
+        break;
       default:
         this.setState({
           choice: '',
+          teams: [],
         });
         break;
     }
@@ -46,11 +67,11 @@ class Allocate extends Component {
             </Col>
           </Row>
         );
-      case 'Random':
+      case '':
+        return <div></div>;
+      default:
         let renderedContent = <TeamList teams={this.state.teams} />;
         return <div>{renderedContent}</div>;
-      default:
-        return <div></div>;
     }
   };
 
@@ -63,7 +84,7 @@ class Allocate extends Component {
               Choose Algorithm
             </Dropdown.Toggle>
 
-            <Dropdown.Menu >
+            <Dropdown.Menu>
               <Dropdown.Item onClick={() => this.chooseAlgorithm('Manual')}>
                 Manual
               </Dropdown.Item>
@@ -73,10 +94,8 @@ class Allocate extends Component {
               <Dropdown.Item onClick={() => this.chooseAlgorithm('Balanced')}>
                 Balanced
               </Dropdown.Item>
-              <Dropdown.Item
-                onClick={() => this.chooseAlgorithm('High Performing')}
-              >
-                High performing
+              <Dropdown.Item onClick={() => this.chooseAlgorithm('Best Fit')}>
+                Best Fit
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

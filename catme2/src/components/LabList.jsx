@@ -41,6 +41,10 @@ class LabList extends React.Component {
           </Fragment>
         ))}
       </Card.Group>
+      <div>
+        <br />
+        <br />
+      </div>
     );
   }
 }

@@ -12,7 +12,6 @@ import {
   Button,
   Container,
   Divider,
-  Grid,
   Header,
   Icon,
   Image,
@@ -107,24 +106,12 @@ class Allocate extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <Header
-          inverted
-          as="h2"
-          textAlign="align-left"
-          style={{ padding: '1em 1em' }}
-        >
-          <Icon inverted name="users" style={{ testAlign: 'left' }} circular />
-          <Header.Content>Allocation</Header.Content>
-        </Header>
-      </div>
-      // <Container alignRight>
-      //   <Row>
-      //     <Dropdown>
-      //       <Dropdown.Toggle variant="success" id="dropdown-basic">
-      //         Choose Algorithm
-      //       </Dropdown.Toggle>
+    // <Container alignRight>
+    //   <Row>
+    //     <Dropdown>
+    //       <Dropdown.Toggle variant="success" id="dropdown-basic">
+    //         Choose Algorithm
+    //       </Dropdown.Toggle>
     const selectionOptions = [
       {
         key: 'Balanced',
@@ -146,21 +133,39 @@ class Allocate extends Component {
     const { value } = this.state;
 
     return (
-      <Grid centered style={{ marginTop: '2rem' }}>
-        <Grid.Row>
-          <Grid.Column width={6}>
-            <Dropdown
-              placeholder="Select algorithm"
-              fluid
-              selection
-              options={selectionOptions}
-              onChange={this.chooseAlgorithm}
-              value={value}
-            ></Dropdown>
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Column width={10}>{this.renderTeams()}</Grid.Column>
-      </Grid>
+      <div>
+        <div>
+          <Header
+            inverted
+            as="h2"
+            textAlign="align-left"
+            style={{ padding: '1em 1em' }}
+          >
+            <Icon
+              inverted
+              name="users"
+              style={{ testAlign: 'left' }}
+              circular
+            />
+            <Header.Content>Allocation</Header.Content>
+          </Header>
+        </div>
+        <Grid centered style={{ marginTop: '2rem' }}>
+          <Grid.Row>
+            <Grid.Column width={6}>
+              <Dropdown
+                placeholder="Select algorithm"
+                fluid
+                selection
+                options={selectionOptions}
+                onChange={this.chooseAlgorithm}
+                value={value}
+              ></Dropdown>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Column width={10}>{this.renderTeams()}</Grid.Column>
+        </Grid>
+      </div>
     );
   }
 }

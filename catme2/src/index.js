@@ -7,6 +7,9 @@ import { BrowserRouter } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
 
+import './index.css';
+import './vendor/fontawesome-free/css/all.min.css'
+
 // import home from './components/Home/Home';
 
 import LabList from './components/LabList';

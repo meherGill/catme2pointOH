@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import './App.css';
+import './index.css';
 import './vendor/fontawesome-free/css/all.min.css'
 // import './vendor/jquery/jquery.min.js'
 // import './vendor/bootstrap/js/bootstrap.bundle.min.js'
@@ -20,7 +21,8 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import firebase from 'firebase';
 
 import LabList from './components/LabList';
-import Navbar from './components/NavbarComponent';
+import TopNavbar from './components/NavbarComponent';
+import SideNavbar from './components/SideNavbar';
 import Allocate from './components/Allocate';
 
 
@@ -50,7 +52,7 @@ class App extends React.Component {
   render() {
     return (
       <Fragment>
-        <Navbar />
+        <TopNavbar />
         <Switch>
           <Route
             exact

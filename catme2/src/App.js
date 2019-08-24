@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap';
 import { Route, Switch } from 'react-router-dom';
 
 import LabList from './components/LabList';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavbarComponent';
 import Allocate from './components/Allocate';
 
 function App() {

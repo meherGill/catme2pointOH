@@ -18,9 +18,11 @@ const students = [
 
 const StudentList = () => {
   return (
+    <Row>
+      <Col sm = "6">
     <Card>
-      <Card.Body>
-        <Card.Title>Students List</Card.Title>
+      <Card.Body className="text-center">
+        <Card.Title style={{backgroundcol: "lightblue"}}>Students List</Card.Title>
         <Card.Text>
           <ListGroup>
             {students.map(student => (
@@ -30,6 +32,8 @@ const StudentList = () => {
         </Card.Text>
       </Card.Body>
     </Card>
+    </Col>
+    </Row>
   );
 };
 

@@ -2,10 +2,11 @@ import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import Lab from "./Lab";
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { Card, Button, ListGroup } from "react-bootstrap";
 
 const labs = [
   {
+    id: "000",
     name: "Lab 1",
     assignments: [
       "Assignment 1: Prototype for website",
@@ -15,6 +16,7 @@ const labs = [
     ]
   },
   {
+    id: "001",
     name: "Lab 2",
     assignments: [
       "Assignment 1: Prototype for website",
@@ -24,6 +26,7 @@ const labs = [
     ]
   },
   {
+    id: "002",
     name: "Lab 3",
     assignments: [
       "Assignment 1: Prototype for website",
@@ -33,6 +36,7 @@ const labs = [
     ]
   },
   {
+    id: "003",
     name: "Lab TEST",
     assignments: [
       "Assignment 1: Prototype for website",
@@ -48,15 +52,33 @@ const LabList = props => {
   const lab = labs;
   const item = [];
 
-  const handleClick = key => {
-    console.log(key);
+  const handleClick = (key, key_id) => {
+    console.log(key, key_id);
+    // Fail to route for hours
   };
 
   for (const [index, value] of lab.entries()) {
     item.push(
-      <li key={index} onClick={() => handleClick(index)}>
-        {value.name}
-      </li>
+      <Card>
+        <Card.Body>
+          <Card.Title>{value.name}</Card.Title>
+          <Card.Text>
+            <ListGroup>
+              {value.assignments.map((data, index) => (
+                <ListGroup.Item
+                  action
+                  onClick={() => handleClick(index, value.id)}
+                >
+                  {data}
+                </ListGroup.Item>
+              ))}
+              {/* {value.assignments.map((value, index) => {
+                return <li key={index}>{value}</li>;
+              })} */}
+            </ListGroup>
+          </Card.Text>
+        </Card.Body>
+      </Card>
     );
   }
 

@@ -1,42 +1,13 @@
-const students = [
-  {
-    id: '1231',
-    name: 'B',
-    skills: { Programming: 3, Agile: 5, dad: 10 },
-  },
-  {
-    id: '221',
-    name: 'Be',
-    skills: { Programming: 2, Agile: 6, dad: 10 },
-  },
-  {
-    id: '34',
-    name: 'Bh',
-    skills: { Programming: 3, Agile: 5, dad: 1 },
-  },
-  {
-    id: '21',
-    name: 'Bi',
-    skills: { Programming: 13, Agile: 5, dad: 1 },
-  },
-  {
-    id: '54',
-    name: 'Bi',
-    skills: { Programming: 13, Agile: 2, dad: 11 },
-  },
-];
-
-function random_matching(
-  studentCollection = students,
-  unitObject,
-  studentsPerTeam = 3
-) {
+function random_matching(studentCollection, studentsPerTeam) {
   const studentsLeft = [...studentCollection];
   const teams = [];
 
   while (studentsLeft.length !== 0) {
     let team = [];
-    let loopCount = studentsLeft.length >= 3 ? 3 : studentsLeft.length;
+    let loopCount =
+      studentsLeft.length >= studentsPerTeam
+        ? studentsPerTeam
+        : studentsLeft.length;
 
     for (let i = 0; i < loopCount; i++) {
       let student =

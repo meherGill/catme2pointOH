@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Team from './Team';
+import { SegmentGroup } from 'semantic-ui-react';
 
 // const students = [
 //   {
@@ -17,19 +18,19 @@ import Team from './Team';
 // ];
 
 const TeamList = props => {
-  const { teams } = props;
+  const { teamName, teams } = props;
 
   const renderedContent = teams.map(team => (
-    <Team teamName="Whatever" students={[...team]} />
+    <Team teamName={teamName} students={[...team]} />
   ));
 
   return (
-    <div>
+    <Fragment>
+      {teams.length > 0 && (
+        <h1 style={{ textAlign: 'center', color: 'white' }}>Teams</h1>
+      )}
       {renderedContent}
-      {/* <Team teamName="Whatever" students={[students[0], students[1]]} />
-      <Team teamName="Whatever" students={[students[1], students[2]]} />
-      <Team teamName="Whatever" students={students} /> */}
-    </div>
+    </Fragment>
   );
 };
 

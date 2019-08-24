@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { SegmentGroup, Segment } from 'semantic-ui-react';
 
 // const students = [
 //   {
@@ -19,18 +19,15 @@ import { Card } from 'semantic-ui-react';
 const StudentList = props => {
   const { students } = props;
   return (
-    <Card>
-      <Card.Body className="text-center">
-        <Card.Title>Students List</Card.Title>
-        <Card.Text>
-          {/* <ListGroup>
-            {students.map(student => (
-              <ListGroup.Item action>{student}</ListGroup.Item>
-            ))}
-          </ListGroup> */}
-        </Card.Text>
-      </Card.Body>
-    </Card>
+    <SegmentGroup>
+      {students.map((student, index) => {
+        if (index == 1) {
+          return <Segment attached="top">Student List</Segment>;
+        } else {
+          return <Segment>{student.name}</Segment>;
+        }
+      })}
+    </SegmentGroup>
   );
 };
 

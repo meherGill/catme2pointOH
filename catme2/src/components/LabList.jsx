@@ -54,11 +54,12 @@ const labs = [
 const LabList = props => {
   //const lab = [];
   // Test run
-
+  console.log(props.unitsInfo);
+  // console.log();
   // const [unitInfo, setInfo] = useState([]);
-  const { ref } = props;
+  // const { labs } = props;
 
-  console.log(ref.get());
+  //console.log(ref.get());
 
   // const lab = labs;
   const item = [];
@@ -68,40 +69,40 @@ const LabList = props => {
     // Fail to route for hours
   };
 
-  // for (const [index, value] of unitInfo.entries()) {
-  //   item.push(
-  //     <Container>
-  //       <Card>
-  //         <Card.Body>
-  //           <Card.Title>{value.name}</Card.Title>
-  //           <Card.Text>
-  //             <Link to="/Allocate">
-  //               <ListGroup>
-  //                 {value.assignments.map((data, index) => (
-  //                   <ListGroup.Item
-  //                     action
-  //                     onClick={() => handleClick(index, value.id)}
-  //                   >
-  //                     {data}
-  //                   </ListGroup.Item>
-  //                 ))}
-  //               </ListGroup>
-  //             </Link>
-  //           </Card.Text>
-  //         </Card.Body>
-  //       </Card>
-  //       <br />
-  //       <br />
-  //     </Container>
-  //   );
-  // }
+  for (const [index, value] of props.unitsInfo.entries()) {
+    item.push(
+      <Container>
+        <Card>
+          <Link to="/Allocate">
+            <Card.Body>
+              <Card.Title>{value.title}</Card.Title>
+              <Card.Text>
+                <ListGroup>
+                  {value.requiredSkills.map((data, index) => (
+                    <ListGroup.Item
+                      action
+                      // onClick={() => handleClick(index, value.id)}
+                    >
+                      {data}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
+              </Card.Text>
+            </Card.Body>
+          </Link>
+        </Card>
+        <br />
+        <br />
+      </Container>
+    );
+  }
 
   return (
     <Container>
       <Switch>
         <Route path="/Allocate" component={Allocate} />
       </Switch>
-      {/* {item} */}
+      {item}
     </Container>
   );
 };

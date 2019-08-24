@@ -112,6 +112,8 @@ class Allocate extends Component {
       teams: unit.teams,
       students: unit.students,
       requiredSkills: unit.requiredSkills,
+      title: unit.title,
+      code: unit.code,
     });
   }
 
@@ -157,7 +159,9 @@ class Allocate extends Component {
               style={{ testAlign: 'left' }}
               circular
             />
-            <Header.Content>Allocation</Header.Content>
+            <Header.Content>
+              Allocation - {this.state.code} {this.state.title}
+            </Header.Content>
           </Header>
         </div>
         <Grid centered style={{ marginTop: '2rem' }}>

@@ -65,7 +65,14 @@ class LabList extends React.Component {
                 }}
                 style={{ margin: '4rem' }}
               >
-                <Image src="https://picsum.photos/200" wrapped ui={false} />
+                <Image
+                  src={
+                    'https://picsum.photos/' +
+                    (Math.floor(Math.random() * 300) + 200)
+                  }
+                  wrapped
+                  ui={false}
+                />
                 <Card.Content textAlign="center">
                   <Card.Header>{unit.code}</Card.Header>
                   <Card.Meta>{unit.title}</Card.Meta>

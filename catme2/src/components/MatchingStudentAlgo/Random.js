@@ -36,8 +36,9 @@ function random_matching(
 
   while (studentsLeft.length !== 0) {
     let team = [];
+    let loopCount = studentsLeft.length >= 3 ? 3 : studentsLeft.length;
 
-    for (let i = 0; i < studentsPerTeam; i++) {
+    for (let i = 0; i < loopCount; i++) {
       let student =
         studentsLeft[Math.floor(Math.random() * studentsLeft.length)];
       let index = studentsLeft.indexOf(student);
@@ -47,7 +48,7 @@ function random_matching(
 
     teams.push(team);
   }
-
+  console.log(teams);
   return [...teams];
 
   //   let index_array = new Array(studentCollection.length).fill(0);

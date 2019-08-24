@@ -4,6 +4,7 @@ import Lab from './Lab';
 import Allocate from './Allocate';
 import { Card, Button, ListGroup } from 'react-bootstrap';
 import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import * as firebase from 'firebase/app';
 
 const labs = [
   {
@@ -50,6 +51,19 @@ const labs = [
 
 const LabList = props => {
   //const lab = [];
+  // Test run
+  firebase
+    .firestore()
+    .collection('teams')
+    .onSnapshot(severUpdate => {
+      const data = severUpdate.docs.map(_doc => {
+        const item = _doc.data();
+        item['id'] = _doc.id;
+        return item;
+      });
+      console.log(data);
+    });
+
   const lab = labs;
   const item = [];
 
@@ -60,28 +74,29 @@ const LabList = props => {
 
   for (const [index, value] of lab.entries()) {
     item.push(
-      <Card>
-        <Card.Body>
-          <Card.Title>{value.name}</Card.Title>
-          <Link to="/Allocate">
+      <Container>
+        <Card>
+          <Card.Body>
+            <Card.Title>{value.name}</Card.Title>
             <Card.Text>
-              <ListGroup>
-                {value.assignments.map((data, index) => (
-                  <ListGroup.Item
-                    action
-                    onClick={() => handleClick(index, value.id)}
-                  >
-                    {data}
-                  </ListGroup.Item>
-                ))}
-                {/* {value.assignments.map((value, index) => {
-                return <li key={index}>{value}</li>;
-              })} */}
-              </ListGroup>
+              <Link to="/Allocate">
+                <ListGroup>
+                  {value.assignments.map((data, index) => (
+                    <ListGroup.Item
+                      action
+                      onClick={() => handleClick(index, value.id)}
+                    >
+                      {data}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
+              </Link>
             </Card.Text>
-          </Link>
-        </Card.Body>
-      </Card>
+          </Card.Body>
+        </Card>
+        <br />
+        <br />
+      </Container>
     );
   }
 
@@ -94,9 +109,5 @@ const LabList = props => {
     </Container>
   );
 };
-// <li key={index} onClick={() => handleClick(index)} >
-{
-  /* <Link to = "/Allocate">{value.name}</Link> */
-}
-// </li>
+
 export default LabList;

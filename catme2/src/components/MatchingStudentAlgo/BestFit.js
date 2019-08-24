@@ -26,6 +26,10 @@
 //   },
 // ];
 
+const allocateBestFit = (students, requiredSkills, studentsPerTeam) => {
+  
+}
+
 function best_fit_matching(studentCollection, unitObject, studentsPerTeam) {
   function refinedStudent(id, kys) {
     this.id = id;
@@ -38,7 +42,7 @@ function best_fit_matching(studentCollection, unitObject, studentsPerTeam) {
     let stu = new refinedStudent(
       student.id,
       Object.keys(student.skills).filter(val =>
-        unitObject['required_skills'].includes(val)
+        unitObject['requiredSkills'].includes(val)
       )
     );
     // console.log(stu.kys)

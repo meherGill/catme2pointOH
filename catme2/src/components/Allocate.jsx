@@ -27,6 +27,7 @@ class Allocate extends Component {
   state = {
     teams: [],
     students: [],
+    requiredSkills: [],
   };
 
   chooseAlgorithm = (e, { value }) => {
@@ -57,7 +58,11 @@ class Allocate extends Component {
       case 'Balanced':
         this.setState(
           {
-            teams: allocateBalanced(),
+            teams: allocateBalanced(
+              this.state.students,
+              this.props.location.state.unit,
+              3
+            ),
           },
           this.renderTeams
         );
@@ -65,7 +70,11 @@ class Allocate extends Component {
       case 'Best Fit':
         this.setState(
           {
-            teams: allocateBestFit(),
+            teams: allocateBestFit(
+              this.state.students,
+              this.props.location.state.unit,
+              3
+            ),
           },
           this.renderTeams
         );
@@ -102,6 +111,7 @@ class Allocate extends Component {
     this.setState({
       teams: unit.teams,
       students: unit.students,
+      requiredSkills: unit.requiredSkills,
     });
   }
 

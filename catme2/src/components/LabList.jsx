@@ -28,22 +28,22 @@ class LabList extends React.Component {
 
   render() {
     return (
-      <Card.Group centered itemsPerRow={3}>
-        {this.state.units.map(unit => (
-          <Fragment>
-            <Card as={Link} to="/allocate">
-              <Image src="https://picsum.photos/200" wrapped ui={false} />
-              <Card.Content textAlign="center">
-                <Card.Header>{unit.code}</Card.Header>
-                <Card.Meta>{unit.title}</Card.Meta>
-              </Card.Content>
-            </Card>
-          </Fragment>
-        ))}
-      </Card.Group>
       <div>
         <br />
         <br />
+        <Card.Group centered itemsPerRow={3}>
+          {this.state.units.map(unit => (
+            <Fragment>
+              <Card as={Link} to="/allocate">
+                <Image src="https://picsum.photos/200" wrapped ui={false} />
+                <Card.Content textAlign="center">
+                  <Card.Header>{unit.code}</Card.Header>
+                  <Card.Meta>{unit.title}</Card.Meta>
+                </Card.Content>
+              </Card>
+            </Fragment>
+          ))}
+        </Card.Group>
       </div>
     );
   }

@@ -1,10 +1,6 @@
 import React from 'react';
-import { Container, Col, Row, Badge } from 'react-bootstrap';
-import Lab from './Lab';
-import Allocate from './Allocate';
-import { Card, Button, ListGroup } from 'react-bootstrap';
-import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import firebase from 'firebase/app';
+import { Card, Image, Grid } from 'semantic-ui-react';
 
 // Will need to change this to uni instead
 class LabList extends React.Component {
@@ -31,14 +27,33 @@ class LabList extends React.Component {
 
   render() {
     return (
-      <Container>
-        <h1>dwdww</h1>
+      <Grid centered columns={2}>
         {this.state.units.map(unit => (
-          <p style={{ color: 'white' }}>
-            {unit.code} | {unit.title}
-          </p>
+          <Card.Group>
+            <Card>
+              <Image src="https://picsum.photos/200" wrapped ui={false} />
+              <Card.Content textAlign="center">
+                <Card.Header>{unit.code}</Card.Header>
+                <Card.Meta>{unit.title}</Card.Meta>
+              </Card.Content>
+            </Card>
+            <Card>
+              <Image src="https://picsum.photos/200" wrapped ui={false} />
+              <Card.Content textAlign="center">
+                <Card.Header>{unit.code}</Card.Header>
+                <Card.Meta>{unit.title}</Card.Meta>
+              </Card.Content>
+            </Card>
+            <Card>
+              <Image src="https://picsum.photos/200" wrapped ui={false} />
+              <Card.Content textAlign="center">
+                <Card.Header>{unit.code}</Card.Header>
+                <Card.Meta>{unit.title}</Card.Meta>
+              </Card.Content>
+            </Card>
+          </Card.Group>
         ))}
-      </Container>
+      </Grid>
     );
   }
 }

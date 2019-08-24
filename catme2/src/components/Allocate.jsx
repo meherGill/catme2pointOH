@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TeamList from './TeamList';
-import { Container, Col, Row, Dropdown } from 'react-bootstrap';
 import StudentList from './StudentList';
 
 import allocateRandomly from './MatchingStudentAlgo/Random';
@@ -58,14 +57,15 @@ class Allocate extends Component {
     switch (this.state.choice) {
       case 'Manual':
         return (
-          <Row>
-            <Col md={3}>
-              <StudentList students={['Jack', 'Ridley', 'Ganz']} />
-            </Col>
-            <Col md={9}>
-              <TeamList teams={[['Jack', 'Ridley'], ['Jack', 'Ridley']]} />
-            </Col>
-          </Row>
+          <div>manual</div>
+          // <Row>
+          //   <Col md={3}>
+          //     <StudentList students={['Jack', 'Ridley', 'Ganz']} />
+          //   </Col>
+          //   <Col md={9}>
+          //     <TeamList teams={[['Jack', 'Ridley'], ['Jack', 'Ridley']]} />
+          //   </Col>
+          // </Row>
         );
       case '':
         return <div></div>;
@@ -77,32 +77,33 @@ class Allocate extends Component {
 
   render() {
     return (
-      <Container alignRight>
-        <Row>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Choose Algorithm
-            </Dropdown.Toggle>
+      <div>hello</div>
+      // <Container alignRight>
+      //   <Row>
+      //     <Dropdown>
+      //       <Dropdown.Toggle variant="success" id="dropdown-basic">
+      //         Choose Algorithm
+      //       </Dropdown.Toggle>
 
-            <Dropdown.Menu>
-              <Dropdown.Item onClick={() => this.chooseAlgorithm('Manual')}>
-                Manual
-              </Dropdown.Item>
-              <Dropdown.Item onClick={() => this.chooseAlgorithm('Random')}>
-                Random
-              </Dropdown.Item>
-              <Dropdown.Item onClick={() => this.chooseAlgorithm('Balanced')}>
-                Balanced
-              </Dropdown.Item>
-              <Dropdown.Item onClick={() => this.chooseAlgorithm('Best Fit')}>
-                Best Fit
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </Row>
+      //       <Dropdown.Menu>
+      //         <Dropdown.Item onClick={() => this.chooseAlgorithm('Manual')}>
+      //           Manual
+      //         </Dropdown.Item>
+      //         <Dropdown.Item onClick={() => this.chooseAlgorithm('Random')}>
+      //           Random
+      //         </Dropdown.Item>
+      //         <Dropdown.Item onClick={() => this.chooseAlgorithm('Balanced')}>
+      //           Balanced
+      //         </Dropdown.Item>
+      //         <Dropdown.Item onClick={() => this.chooseAlgorithm('Best Fit')}>
+      //           Best Fit
+      //         </Dropdown.Item>
+      //       </Dropdown.Menu>
+      //     </Dropdown>
+      //   </Row>
 
-        {this.renderTeams()}
-      </Container>
+      //   {this.renderTeams()}
+      // </Container>
     );
   }
 }

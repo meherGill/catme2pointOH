@@ -12,9 +12,7 @@ const Team = props => {
           <Card.Text>
             <ListGroup>
               {students.map(student => (
-                <ListGroup.Item action>
-                  {student.name}
-                </ListGroup.Item>
+                <ListGroup.Item action>{student}</ListGroup.Item>
               ))}
             </ListGroup>
           </Card.Text>

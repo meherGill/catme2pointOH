@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, ListGroup, Row, Col } from 'react-bootstrap';
+import { Card, ListGroup, Row,Col } from 'react-bootstrap';
 
 // const students = [
 //   {

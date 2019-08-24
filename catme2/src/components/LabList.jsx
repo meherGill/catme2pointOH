@@ -28,6 +28,7 @@ class LabList extends React.Component {
 
   render() {
     return (
+
       <Card.Group centered itemsPerRow={4}>
         {this.state.units.map(unit => (
           <Fragment>
@@ -48,6 +49,7 @@ class LabList extends React.Component {
           </Fragment>
         ))}
       </Card.Group>
+
     );
   }
 }

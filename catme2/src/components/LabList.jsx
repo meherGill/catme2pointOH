@@ -5,6 +5,7 @@ import Allocate from './Allocate';
 import { Card, Button, ListGroup } from 'react-bootstrap';
 import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import * as firebase from 'firebase/app';
+import { useState } from 'react';
 
 const labs = [
   {
@@ -49,22 +50,17 @@ const labs = [
   },
 ];
 
+// Will need to change this to uni instead
 const LabList = props => {
   //const lab = [];
   // Test run
-  firebase
-    .firestore()
-    .collection('teams')
-    .onSnapshot(severUpdate => {
-      const data = severUpdate.docs.map(_doc => {
-        const item = _doc.data();
-        item['id'] = _doc.id;
-        return item;
-      });
-      console.log(data);
-    });
 
-  const lab = labs;
+  // const [unitInfo, setInfo] = useState([]);
+  const { ref } = props;
+
+  console.log(ref.get());
+
+  // const lab = labs;
   const item = [];
 
   const handleClick = (key, key_id) => {
@@ -72,40 +68,40 @@ const LabList = props => {
     // Fail to route for hours
   };
 
-  for (const [index, value] of lab.entries()) {
-    item.push(
-      <Container>
-        <Card>
-          <Card.Body>
-            <Card.Title>{value.name}</Card.Title>
-            <Card.Text>
-              <Link to="/Allocate">
-                <ListGroup>
-                  {value.assignments.map((data, index) => (
-                    <ListGroup.Item
-                      action
-                      onClick={() => handleClick(index, value.id)}
-                    >
-                      {data}
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
-              </Link>
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <br />
-        <br />
-      </Container>
-    );
-  }
+  // for (const [index, value] of unitInfo.entries()) {
+  //   item.push(
+  //     <Container>
+  //       <Card>
+  //         <Card.Body>
+  //           <Card.Title>{value.name}</Card.Title>
+  //           <Card.Text>
+  //             <Link to="/Allocate">
+  //               <ListGroup>
+  //                 {value.assignments.map((data, index) => (
+  //                   <ListGroup.Item
+  //                     action
+  //                     onClick={() => handleClick(index, value.id)}
+  //                   >
+  //                     {data}
+  //                   </ListGroup.Item>
+  //                 ))}
+  //               </ListGroup>
+  //             </Link>
+  //           </Card.Text>
+  //         </Card.Body>
+  //       </Card>
+  //       <br />
+  //       <br />
+  //     </Container>
+  //   );
+  // }
 
   return (
     <Container>
       <Switch>
         <Route path="/Allocate" component={Allocate} />
       </Switch>
-      {item}
+      {/* {item} */}
     </Container>
   );
 };

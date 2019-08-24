@@ -56,14 +56,14 @@ class Allocate extends Component {
 
   render() {
     return (
-      <Container>
+      <Container alignRight>
         <Row>
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Choose Algorithm
             </Dropdown.Toggle>
 
-            <Dropdown.Menu>
+            <Dropdown.Menu >
               <Dropdown.Item onClick={() => this.chooseAlgorithm('Manual')}>
                 Manual
               </Dropdown.Item>

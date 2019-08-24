@@ -2047,15 +2047,25 @@ function App() {
 =======
 class App extends React.Component {
   state = {
-    unitsRef: null,
+    unitsInfo: [],
   };
 
   componentDidMount = () => {
-    const ref = firebase.firestore().collection('units');
+    let tempInfo = [];
 
-    this.setState({
-      unitsRef: ref,
-    });
+    const snapshot = firebase
+      .firestore()
+      .collection('units')
+      .get()
+      .then(snap => {
+        snap.docs.forEach(doc => {
+          tempInfo.push(doc.data());
+        });
+      });
+
+    console.log(tempInfo);
+    this.state.unitsInfo = tempInfo;
+    console.log(this.state.unitsInfo);
   };
 
   render() {
@@ -2066,7 +2076,9 @@ class App extends React.Component {
           <Route
             exact
             path="/"
-            component={() => <LabList ref={this.state.unitsRef} />}
+            render={props => (
+              <LabList {...props} unitsInfo={this.state.unitsInfo} />
+            )}
           />
           <Route path="/allocate" component={Allocate} />
         </Switch>

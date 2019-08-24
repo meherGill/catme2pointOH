@@ -6,7 +6,7 @@ const Lab = props => {
 
   return (
     <Card>
-      <Card.Body>
+      <Card.Body className="text-center">
         <Card.Title>{lab.name}</Card.Title>
         <Card.Text>
           {lab.assignments.map(assignment => (

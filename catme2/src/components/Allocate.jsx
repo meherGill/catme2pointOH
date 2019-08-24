@@ -51,7 +51,7 @@ class Allocate extends Component {
               Choose Algorithm
             </Dropdown.Toggle>
 
-            <Dropdown.Menu>
+            <Dropdown.Menu pullRight>
               <Dropdown.Item onClick={() => this.chooseAlgorithm('Manual')}>
                 Manual
               </Dropdown.Item>

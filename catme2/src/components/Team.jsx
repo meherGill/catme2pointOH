@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card, ListGroup } from 'react-bootstrap';
+import { Card } from 'semantic-ui-react';
 
 const Team = props => {
-  const { teamName, students } = props;
+  const { teamName } = props;
 
   return (
     <div>
@@ -10,13 +10,13 @@ const Team = props => {
         <Card.Body>
           <Card.Title>{teamName}</Card.Title>
           <Card.Text>
-            <ListGroup>
+            {/* <ListGroup>
               {students.map(student => (
                 <ListGroup.Item action>
                   {student.name} | {student.id}
                 </ListGroup.Item>
               ))}
-            </ListGroup>
+            </ListGroup> */}
           </Card.Text>
         </Card.Body>
       </Card>

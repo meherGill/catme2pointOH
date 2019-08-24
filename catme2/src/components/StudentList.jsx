@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, ListGroup, Row,Col } from 'react-bootstrap';
+import { Card } from 'semantic-ui-react';
 
 // const students = [
 //   {
@@ -19,22 +19,18 @@ import { Card, ListGroup, Row,Col } from 'react-bootstrap';
 const StudentList = props => {
   const { students } = props;
   return (
-    <Row>
-      <Col sm = "6">
     <Card>
       <Card.Body className="text-center">
-        <Card.Title style={{backgroundcol: "lightblue"}}>Students List</Card.Title>
+        <Card.Title>Students List</Card.Title>
         <Card.Text>
-          <ListGroup>
+          {/* <ListGroup>
             {students.map(student => (
               <ListGroup.Item action>{student}</ListGroup.Item>
             ))}
-          </ListGroup>
+          </ListGroup> */}
         </Card.Text>
       </Card.Body>
     </Card>
-    </Col>
-    </Row>
   );
 };
 

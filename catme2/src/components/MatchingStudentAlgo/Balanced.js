@@ -60,12 +60,14 @@ function balanced_matching(studentCollection, unitObject, studentsPerTeam) {
     this.kys = kys;
   }
 
+  console.log(unitObject);
+
   let refinedStudentArray = new Array();
   for (let student of studentCollection) {
     let stu = new refinedStudent(
       student.id,
       Object.keys(student.skills).filter(val =>
-        unitObject['required_skills'].includes(val)
+        unitObject['requiredSkills'].includes(val)
       )
     );
     // console.log(stu.kys)
@@ -106,12 +108,13 @@ function balanced_matching(studentCollection, unitObject, studentsPerTeam) {
   }
 
   arrayToReturn.push(valToPush);
+  console.log(arrayToReturn);
   let newArray = [];
 
   for (let each of arrayToReturn) {
     let newVal = [];
     for (let e of each) {
-      console.log(e[0][0]);
+      console.log(e);
       let stu = studentCollection.filter(val => {
         return val.id == e[0];
       })[0];

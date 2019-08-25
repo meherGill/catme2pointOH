@@ -60,27 +60,30 @@ function balanced_matching(studentCollection, unitObject, studentsPerTeam) {
     this.kys = kys;
   }
 
-  console.log(studentCollection);
+  //console.log(unitObject);
 
   let refinedStudentArray = new Array();
   for (let student of studentCollection) {
+    console.log(student);
     let stu = new refinedStudent(
       student.id,
       Object.keys(student.skills).filter(val =>
         unitObject['requiredSkills'].includes(val)
       )
     );
-    // console.log(stu.kys)
+    console.log(stu.kys);
     for (let k of stu.kys) {
+      console.log(k);
       stu.skills[k] = student.skills[k];
     }
-    // console.log(stu.skills)
+    //console.log(stu.skills);
     let valToPush = [
       stu.id,
       Object.keys(stu.skills)
         .map(val => stu.skills[val])
         .reduce((curr, acc) => curr + acc, 0),
     ];
+    console.log(valToPush);
     refinedStudentArray.push(valToPush);
   }
   refinedStudentArray.sort((a, b) => a[1] - b[1]);

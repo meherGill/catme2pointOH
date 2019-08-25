@@ -5,8 +5,10 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "firebase": "^6.4.0",
+    "firebase-admin": "^8.4.0",
     "history": "^4.9.0",
     "react": "^16.9.0",
+    "react-admin-firebase": "^0.8.7",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.1.1",

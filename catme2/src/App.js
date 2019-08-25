@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import './App.css';
 
 import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import firebase from 'firebase';
 
@@ -31,9 +32,36 @@ class App extends React.Component {
   }
 
   render() {
+    // let data = [
+    //   {
+    //     name: 'Damson',
+    //     skills: [{ programming: 4 }, { swift: 6 }],
+    //     id: '98',
+    //     allocated: false,
+    //   },
+    //   {
+    //     name: 'Damit',
+    //     skills: [{ programming: 4 }, { swift: 6 }],
+    //     id: '87',
+    //     allocated: false,
+    //   },
+    // ];
+
+    // //let admin = require('firebase-admin');
+    // // Add a new document in collection "cities" with ID 'LA'
+    // for (const [index, value] of data.entries()) {
+    //   let setDoc = firebase
+    //     .firestore()
+    //     .collection('units')
+    //     .doc('7khKjbNYJxwKw0SxwdYe')
+    //     .update({
+    //       students: firebase.firestore.FieldValue.arrayUnion(value),
+    //     });
+    // }
     return (
       <Fragment>
-        <Switch>
+        {/* <Switch> */}
+        <Router>
           <Route
             exact
             path="/"
@@ -41,7 +69,8 @@ class App extends React.Component {
             component={LabList}
           />
           <Route path="/units/:id/allocate" component={Allocate} />
-        </Switch>
+        </Router>
+        {/* </Switch> */}
       </Fragment>
     );
   }

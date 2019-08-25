@@ -60,7 +60,7 @@ function balanced_matching(studentCollection, unitObject, studentsPerTeam) {
     this.kys = kys;
   }
 
-  // console.log(stud);
+  console.log(studentCollection);
 
   let refinedStudentArray = new Array();
   for (let student of studentCollection) {

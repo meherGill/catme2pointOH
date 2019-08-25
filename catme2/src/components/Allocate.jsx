@@ -5,7 +5,7 @@ import StudentList from './StudentList';
 import allocateRandomly from './MatchingStudentAlgo/Random';
 import allocateBalanced from './MatchingStudentAlgo/Balanced';
 import allocateBestFit from './MatchingStudentAlgo/BestFit';
-import { Grid, Dropdown } from 'semantic-ui-react';
+import { Grid, Dropdown, Label } from 'semantic-ui-react';
 
 import {
   Card,
@@ -199,6 +199,9 @@ class Allocate extends Component {
         <Grid centered style={{ marginTop: '2rem' }}>
           <Grid.Row>
             <Grid.Column width={6}>
+              <Header style={{ color: 'white' }} as="h3" dividing>
+                Select team-making algorithm
+              </Header>
               <Dropdown
                 placeholder="Select algorithm"
                 fluid
@@ -211,6 +214,9 @@ class Allocate extends Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column width={6}>
+              <Header style={{ color: 'white' }} as="h3" dividing>
+                Select students per team
+              </Header>
               <input
                 value={this.state.studentsPerTeam}
                 style={{ padding: '1rem', width: '100%' }}

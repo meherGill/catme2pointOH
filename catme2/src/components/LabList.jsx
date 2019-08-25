@@ -46,12 +46,16 @@ class LabList extends React.Component {
       <div>
         <Header
           inverted
-          as="h2"
+          as="h1"
           textAlign="align-left"
           style={{ padding: '1em 1em' }}
         >
           <Icon inverted name="handshake" style={{ testAlign: 'left' }} circular />
           <Header.Content>Units</Header.Content>
+        </Header>
+
+        <Header style={{ color: 'white' }} as="h3" dividing>
+                Select unit
         </Header>
 
         <Card.Group centered itemsPerRow={4}>
@@ -68,7 +72,7 @@ class LabList extends React.Component {
                 <Image
                   src={
                     'https://picsum.photos/' +
-                    (Math.floor(Math.random() * 300) + 200)
+                    (Math.floor(Math.random() * 900) + 800)
                   }
                   wrapped
                   ui={false}

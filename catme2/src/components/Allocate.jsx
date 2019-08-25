@@ -183,7 +183,7 @@ class Allocate extends Component {
         <div>
           <Header
             inverted
-            as="h2"
+            as="h1"
             textAlign="align-left"
             style={{ padding: '1em 1em' }}
           >

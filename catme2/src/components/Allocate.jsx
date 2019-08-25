@@ -26,6 +26,13 @@ import {
   Visibility,
 } from 'semantic-ui-react';
 
+const getWidth = () => {
+  const isSSR = typeof window === 'undefined'
+
+  return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
+}
+
+
 class Allocate extends Component {
   state = {
     teams: [],
@@ -194,20 +201,53 @@ class Allocate extends Component {
           {/* <Route exact path="/units/FIT2100/Allocate" Component={Allocate}  /> */}
         </BrowserRouter>
         <div>
+        <Header
+          inverted
+          as="h1"
+          textAlign="align-left"
+          style={{ padding: '1em 1em', }}
+        >
+          <Icon inverted name="handshake outline" style={{ testAlign: 'left' }} circular />
+          <Header.Content>Collaborator</Header.Content>
+        </Header>
           <Header
+            inverted
+            as="h2"
+            textAlign="align-left"
+            style={{ padding: '1em 1.5em' }}
+          >
+            <Icon
+              inverted
+              name="users"
+              circular
+            />
+
+            <Header.Content>
+              Allocation - {this.state.code} {this.state.title}
+            </Header.Content>
+          </Header>
+                    <Header
             inverted
             as="h2"
             textAlign="align-left"
             style={{ padding: '1em 1em' }}
           >
-            <Icon
+          <Icon
               inverted
-              name="users"
-              style={{ testAlign: 'left' }}
+              name="angle left"
+              style={{
+
+                padding: '1em 1em',
+                            position: 'absolute',
+                            left: (getWidth) ,
+                            right: 0 ,
+                            top: 15,
+                            bottom: 0
+                        }}
               circular
+              onClick={this.props.history.goBack()}
             />
-            <Header.Content>Allocation</Header.Content>
-          </Header>
+            </Header>
         </div>
         <Grid centered style={{ marginTop: '2rem' }}>
           <Grid.Row>

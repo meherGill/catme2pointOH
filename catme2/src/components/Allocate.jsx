@@ -7,7 +7,7 @@ import App from '../App';
 import allocateRandomly from './MatchingStudentAlgo/Random';
 import allocateBalanced from './MatchingStudentAlgo/Balanced';
 import allocateBestFit from './MatchingStudentAlgo/BestFit';
-import { Icon, Grid, Dropdown, Label } from 'semantic-ui-react';
+import { Grid, Dropdown, Label } from 'semantic-ui-react';
 
 import {
   Card,

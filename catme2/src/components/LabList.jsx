@@ -94,9 +94,6 @@ class LabList extends React.Component {
             </Fragment>
           ))}
         </Card.Group>
-     <h2 class="ui header">Copyright @ Collaborator 2019W</h2>
-     <p style={{color:'teal'}} as ="h4">Mubtasim Mahmud, Meherwan Singh Gill, Alex Ang, Niroo Arjuna, Simran Dhonchik, Niroo Arjuna</p>
-     <p></p>
       </div>
     );
   }

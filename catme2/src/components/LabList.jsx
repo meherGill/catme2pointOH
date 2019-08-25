@@ -50,7 +50,7 @@ class LabList extends React.Component {
           textAlign="align-left"
           style={{ padding: '1em 1em' }}
         >
-          <Icon inverted name="book" style={{ testAlign: 'left' }} circular />
+          <Icon inverted name="handshake" style={{ testAlign: 'left' }} circular />
           <Header.Content>Units</Header.Content>
         </Header>
 

@@ -32,6 +32,7 @@ class Allocate extends Component {
     requiredSkills: [],
     unit: null,
     studentsPerTeam: 3,
+    teamName: '',
   };
   goHome = () => {
     window.location.reload();
@@ -113,44 +114,41 @@ class Allocate extends Component {
   };
 
   randomName = () => {
-    const rand = Math.floor(Math.random() * 10) + 1;
+    const rand = (Math.floor(Math.random() * 10) + 1) % 7;
 
     switch (rand) {
       case 1:
-        return 'GayManWonderland';
+        return 'team1';
         break;
 
       case 2:
-        return 'Franchis the Filthy Team';
+        return 'team2';
         break;
 
       case 3:
-        return 'How about No';
+        return 'team3';
         break;
 
       case 4:
-        return 'zZDark_LordXD';
+        return 'team4';
         break;
 
       case 5:
-        return 'The Benchoj Man';
+        return 'team5';
         break;
 
       case 6:
-        return 'Now Frick';
+        return 'team6';
         break;
 
       default:
-        return 'JamesWhiteheadTheMemeLord';
+        return 'team7';
         break;
     }
   };
 
   nameOrganiser = () => {
-    for (const [index, value] of this.state.teams.entries()) {
-      this.state.teamName = this.randomName();
-    }
-    return this.state.teamName;
+    return this.randomName();
   };
 
   renderTeams = () => {
@@ -160,9 +158,7 @@ class Allocate extends Component {
       case '':
         return <div></div>;
       default:
-        let renderedContent = (
-          <TeamList teamName={this.nameOrganiser()} teams={this.state.teams} />
-        );
+        let renderedContent = <TeamList teams={this.state.teams} />;
         return <div>{renderedContent}</div>;
     }
   };

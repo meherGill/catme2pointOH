@@ -17,11 +17,28 @@ import { SegmentGroup } from 'semantic-ui-react';
 //   },
 // ];
 
+// const arr = [
+//   'team1',
+//   'team2',
+//   'team3',
+//   'team4',
+//   'team5',
+//   'team6',
+//   'team7',
+//   'team8',
+// ];
+
+const generateRandomTeamName = () => {
+  let rand = Math.floor(Math.random() * 1000) + 1;
+  return 'team ' + rand;
+  // return copyArr.splice(rand, 1)[0];
+};
+
 const TeamList = props => {
   const { teamName, teams } = props;
 
   const renderedContent = teams.map(team => (
-    <Team teamName={teamName} students={[...team]} />
+    <Team teamName={generateRandomTeamName()} students={[...team]} />
   ));
 
   return (

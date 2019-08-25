@@ -151,9 +151,7 @@ class Allocate extends Component {
               style={{ testAlign: 'left' }}
               circular
             />
-            <Header.Content>
-              Allocation - {this.state.code} {this.state.title}
-            </Header.Content>
+            <Header.Content>Allocation</Header.Content>
           </Header>
         </div>
         <Grid centered style={{ marginTop: '2rem' }}>

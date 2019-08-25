@@ -7,9 +7,11 @@ const Team = props => {
   return (
     <div>
       <SegmentGroup style={{ margin: '1rem' }}>
-        <Segment attached="top" color="teal" inverted>
-          Team {teamName}
-        </Segment>
+        {students.length > 0 && (
+          <Segment attached="top" color="teal" inverted>
+            Team {teamName}
+          </Segment>
+        )}
         {students.map(student => (
           <Segment>{student.name}</Segment>
         ))}

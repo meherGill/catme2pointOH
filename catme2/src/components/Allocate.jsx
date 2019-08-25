@@ -7,7 +7,7 @@ import App from '../App';
 import allocateRandomly from './MatchingStudentAlgo/Random';
 import allocateBalanced from './MatchingStudentAlgo/Balanced';
 import allocateBestFit from './MatchingStudentAlgo/BestFit';
-import { Grid, Dropdown, Label } from 'semantic-ui-react';
+import { Icon, Grid, Dropdown, Label } from 'semantic-ui-react';
 
 import {
   Card,
@@ -224,6 +224,21 @@ class Allocate extends Component {
 
     return (
       <div>
+        <BrowserRouter>
+          <Link to="/">
+            <Icon
+              arrow
+              alternate
+              circle
+              left
+              outline
+              onClick={this.goHome}
+              float="right"
+            ></Icon>
+          </Link>
+
+          <Route exact path="/" Component={App} />
+        </BrowserRouter>
         <div>
           <Header
             inverted

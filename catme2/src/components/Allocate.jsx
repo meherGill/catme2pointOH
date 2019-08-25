@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import TeamList from './TeamList';
 import StudentList from './StudentList';
 
+import App from '../App';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+
 import allocateRandomly from './MatchingStudentAlgo/Random';
 import allocateBalanced from './MatchingStudentAlgo/Balanced';
 import allocateBestFit from './MatchingStudentAlgo/BestFit';
@@ -30,8 +33,11 @@ class Allocate extends Component {
     requiredSkills: [],
     unit: null,
     studentsPerTeam: 3,
+    dummyBool: false,
   };
-
+  goHome = () => {
+    window.location.reload();
+  };
   handleStudentsChange = e => {
     this.setState(
       {
@@ -180,6 +186,13 @@ class Allocate extends Component {
 
     return (
       <div>
+        <BrowserRouter>
+          <h1 onClick={this.goHome}>
+            <Link to="/">HOME</Link>
+          </h1>
+          <Route path="/" Component={App} />
+          {/* <Route exact path="/units/FIT2100/Allocate" Component={Allocate}  /> */}
+        </BrowserRouter>
         <div>
           <Header
             inverted

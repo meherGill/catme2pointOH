@@ -84,7 +84,7 @@ class Allocate extends Component {
           this.renderTeams
         );
         break;
-      case 'High achievers':
+      case 'High Achievers':
         this.setState(
           {
             teams: allocateBestFit(

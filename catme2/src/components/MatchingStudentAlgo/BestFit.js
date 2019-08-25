@@ -26,16 +26,14 @@
 //   },
 // ];
 
-const allocateBestFit = (students, requiredSkills, studentsPerTeam) => {
-  
-}
-
 function best_fit_matching(studentCollection, unitObject, studentsPerTeam) {
   function refinedStudent(id, kys) {
     this.id = id;
     this.skills = new Object();
     this.kys = kys;
   }
+
+  console.log(studentCollection);
 
   let refinedStudentArray = new Array();
   for (let student of studentCollection) {

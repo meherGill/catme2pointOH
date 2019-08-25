@@ -50,12 +50,21 @@ class LabList extends React.Component {
           textAlign="align-left"
           style={{ padding: '1em 1em' }}
         >
-          <Icon inverted name="handshake" style={{ testAlign: 'left' }} circular />
+          <Icon
+            inverted
+            name="handshake"
+            style={{ testAlign: 'left' }}
+            circular
+          />
           <Header.Content>Units</Header.Content>
         </Header>
 
-        <Header style={{ color: 'white' }} as="h3" dividing>
-                Select unit
+        <Header
+          as="h3"
+          inverted
+          style={{ textAlign: 'center', posititon: 'adsolute', top: 100 }}
+        >
+          Select a Unit
         </Header>
 
         <Card.Group centered itemsPerRow={4}>

@@ -68,7 +68,7 @@ class LabList extends React.Component {
                 <Image
                   src={
                     'https://picsum.photos/' +
-                    (Math.floor(Math.random() * 300) + 200)
+                    (Math.floor(Math.random() * 800) + 700)
                   }
                   wrapped
                   ui={false}

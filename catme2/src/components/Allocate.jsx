@@ -147,9 +147,9 @@ class Allocate extends Component {
         value: 'Balanced',
       },
       {
-        key: 'High achievers',
-        text: 'High achievers',
-        value: 'High achievers',
+        key: 'High Achievers',
+        text: 'High Achievers',
+        value: 'High Achievers',
       },
       {
         key: 'Random',

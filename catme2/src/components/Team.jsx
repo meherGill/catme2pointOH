@@ -1,5 +1,5 @@
 import React from 'react';
-import { SegmentGroup, Segment } from 'semantic-ui-react';
+import { SegmentGroup, Segment, Label } from 'semantic-ui-react';
 
 const Team = props => {
   const { teamName, students } = props;
@@ -13,7 +13,16 @@ const Team = props => {
           </Segment>
         )}
         {students.map(student => (
-          <Segment>{student.name}</Segment>
+          <Segment>
+            {student.name}
+            <div style={{ float: 'right' }}>
+              {Object.keys(student.skills).map(key => (
+                <Label>
+                  {key}:{student.skills[key] / 10}
+                </Label>
+              ))}
+            </div>
+          </Segment>
         ))}
       </SegmentGroup>
     </div>

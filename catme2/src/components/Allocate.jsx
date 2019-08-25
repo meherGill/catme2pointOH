@@ -228,12 +228,6 @@ class Allocate extends Component {
 
     return (
       <div>
-        <BrowserRouter>
-          <h1 onClick={this.goHome}>
-            <Link to="/">Home</Link>
-          </h1>
-          <Route exact path="/" Component={App} />
-        </BrowserRouter>
         <div>
           <Header
             inverted
@@ -241,6 +235,19 @@ class Allocate extends Component {
             textAlign="align-left"
             style={{ padding: '1em 1em' }}
           >
+            <BrowserRouter>
+              <Icon onClick={this.goHome}>
+                <Link to="/">
+                  <Icon
+                    inverted
+                    name="angle left"
+                    style={{ testAlign: 'left' }}
+                    circular
+                  />
+                </Link>
+              </Icon>
+              <Route exact path="/" Component={App} />
+            </BrowserRouter>
             <Icon
               inverted
               name="handshake"

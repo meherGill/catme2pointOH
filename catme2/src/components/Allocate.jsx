@@ -130,6 +130,8 @@ class Allocate extends Component {
       students: unit.students,
       requiredSkills: unit.requiredSkills,
       unit: unit,
+      unitCode: unit.code,
+      unitTitle: unit.title,
     });
   }
 
@@ -193,7 +195,9 @@ class Allocate extends Component {
               style={{ testAlign: 'left' }}
               circular
             />
-            <Header.Content>Allocation</Header.Content>
+            <Header.Content>
+              Allocation - {this.state.unitCode} {this.state.unitTitle}
+            </Header.Content>
           </Header>
         </div>
         <Grid centered style={{ marginTop: '2rem' }}>

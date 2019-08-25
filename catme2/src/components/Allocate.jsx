@@ -29,6 +29,16 @@ class Allocate extends Component {
     students: [],
     requiredSkills: [],
     unit: null,
+    studentsPerTeam: 3,
+  };
+
+  handleStudentsChange = e => {
+    this.setState(
+      {
+        studentsPerTeam: e.target.value,
+      },
+      this.setTeams
+    );
   };
 
   chooseAlgorithm = (e, { value }) => {
@@ -37,9 +47,12 @@ class Allocate extends Component {
       {
         value,
       },
-      console.log(this.state)
+      this.setTeams
     );
-    switch (value) {
+  };
+
+  setTeams = () => {
+    switch (this.state.value) {
       case 'Manual':
         this.setState(
           {
@@ -51,7 +64,10 @@ class Allocate extends Component {
       case 'Random':
         this.setState(
           {
-            teams: allocateRandomly(this.state.students, 3),
+            teams: allocateRandomly(
+              this.state.students,
+              this.state.studentsPerTeam
+            ),
           },
           this.renderTeams
         );
@@ -59,7 +75,11 @@ class Allocate extends Component {
       case 'Balanced':
         this.setState(
           {
-            teams: allocateBalanced(this.state.students, this.state.unit, 3),
+            teams: allocateBalanced(
+              this.state.students,
+              this.state.unit,
+              this.state.studentsPerTeam
+            ),
           },
           this.renderTeams
         );
@@ -67,7 +87,11 @@ class Allocate extends Component {
       case 'High achievers':
         this.setState(
           {
-            teams: allocateBestFit(this.state.students, this.state.unit, 3),
+            teams: allocateBestFit(
+              this.state.students,
+              this.state.unit,
+              this.state.studentsPerTeam
+            ),
           },
           this.renderTeams
         );
@@ -134,6 +158,24 @@ class Allocate extends Component {
       },
     ];
 
+    const studentOptions = [
+      {
+        key: '2',
+        text: '2',
+        value: 2,
+      },
+      {
+        key: '3',
+        text: '3',
+        value: 3,
+      },
+      {
+        key: '4',
+        text: '4',
+        value: 4,
+      },
+    ];
+
     const { value } = this.state;
 
     return (
@@ -165,6 +207,16 @@ class Allocate extends Component {
                 onChange={this.chooseAlgorithm}
                 value={value}
               ></Dropdown>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={6}>
+              <input
+                value={this.state.studentsPerTeam}
+                style={{ padding: '1rem', width: '100%' }}
+                type="number"
+                onChange={this.handleStudentsChange}
+              />
             </Grid.Column>
           </Grid.Row>
           <Grid.Column width={10}>{this.renderTeams()}</Grid.Column>

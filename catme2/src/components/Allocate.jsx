@@ -100,11 +100,53 @@ class Allocate extends Component {
         this.setState(
           {
             teams: [],
+            teamName: '',
           },
           this.renderTeams
         );
         break;
     }
+  };
+
+  randomName = () => {
+    const rand = Math.floor(Math.random() * 10) + 1;
+
+    switch (rand) {
+      case 1:
+        return 'GayManWonderland';
+        break;
+
+      case 2:
+        return 'Franchis the Filthy Team';
+        break;
+
+      case 3:
+        return 'How about No';
+        break;
+
+      case 4:
+        return 'zZDark_LordXD';
+        break;
+
+      case 5:
+        return 'The Benchoj Man';
+        break;
+
+      case 6:
+        return 'Now Frick';
+        break;
+
+      default:
+        return 'JamesWhiteheadTheMemeLord';
+        break;
+    }
+  };
+
+  nameOrganiser = () => {
+    for (const [index, value] of this.state.teams.entries()) {
+      this.state.teamName = this.randomName();
+    }
+    return this.state.teamName;
   };
 
   renderTeams = () => {
@@ -115,7 +157,7 @@ class Allocate extends Component {
         return <div></div>;
       default:
         let renderedContent = (
-          <TeamList teamName="Whatever" teams={this.state.teams} />
+          <TeamList teamName={this.nameOrganiser()} teams={this.state.teams} />
         );
         return <div>{renderedContent}</div>;
     }
